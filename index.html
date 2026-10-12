@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AirDosh – Upcoming Events</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="#"><img src="logo.png" alt="AirDosh logo"></a>
+  <nav>
+    <a href="#">Ticket Support</a>
+    <a href="#">Become an Organiser</a>
+    <a href="#" class="creator">Event Creator &rsaquo;</a>
+    <button class="btn" id="buyTop">Buy Tickets</button>
+  </nav>
+</header>
+<main>
+  <h1>Upcoming Events</h1>
+  <div class="tools" role="group" aria-label="Filter events">
+    <button class="chip" data-f="all" aria-pressed="true">All</button>
+    <button class="chip" data-f="featured" aria-pressed="false">Featured</button>
+    <button class="chip" data-f="onsale" aria-pressed="false">On sale</button>
+    <input class="search" id="q" type="search" placeholder="Search events or places" aria-label="Search events or places">
+  </div>
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty" hidden>No events match. Clear the search or pick another filter.</p>
+</main>
+
+<dialog id="dlg">
+  <div class="m">
+    <h3 id="dTitle"></h3>
+    <div class="date" id="dDate"></div>
+    <div class="place" id="dPlace"></div>
+    <div id="buy">
+      <div class="row"><span>Tickets (R<span id="dPrice"></span> each)</span>
+        <div class="qty"><button id="minus" aria-label="Fewer tickets">&minus;</button><b id="n">1</b><button id="plus" aria-label="More tickets">+</button></div>
+      </div>
+      <div class="row"><span>Total</span><span class="total">R<span id="tot"></span></span></div>
+      <button class="btn" id="reserve">Reserve tickets</button>
+    </div>
+    <div id="resale" hidden>
+      <p class="soldnote">Tickets for this event are sold out. You can buy from fans who are reselling theirs.</p>
+      <h4>Resale tickets</h4>
+      <ul id="resaleList"></ul>
+      <p class="place" id="resaleEmpty" hidden>No resale tickets are listed yet. Check back soon.</p>
+    </div>
+    <button class="close" id="close">Close</button>
+  </div>
+</dialog>
+<dialog id="codeDlg">
+  <div class="m">
+    <h3>Enter ticket code</h3>
+    <p class="place" id="codeFor"></p>
+    <div id="codeFields"></div>
+    <button class="btn" id="codeGo">Verify code</button>
+    <div id="ticketsOut"></div>
+    <button class="close" id="codeClose">Close</button>
+  </div>
+</dialog>
+<div id="toast" role="status"></div>
+<script src="ticket-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
